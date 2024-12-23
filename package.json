@@ -11,3 +11,8 @@
     "helius-sdk": "^1.0.15"
   }
 }
+{
+  "scripts": {
+    "test": "your-test-command-here"
+  }
+}
