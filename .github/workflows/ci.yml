@@ -1,6 +1,6 @@
 name: Node.js CI and Linting
+
 on:
-  # Trigger the workflow on push, pull request, or manual dispatch
   push:
     branches:
       - main
@@ -13,6 +13,7 @@ on:
         description: "Run the linter"
         required: false
         default: "true"
+
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
@@ -78,4 +79,5 @@ jobs:
         export DO_IP=${{ secrets.DO_IP }}
         export SSH_PUBLIC_KEY=${{ secrets.SSH_PUBLIC_KEY }}
         
-        node bot.js
+        # Run the bot with index.js
+        node index.js
