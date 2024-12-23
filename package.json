@@ -4,14 +4,10 @@
   "description": "A bot for high-speed trading on Solana.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "jest"
+    "start": "node index.js"
   },
   "dependencies": {
     "@solana/web3.js": "^1.76.0",
     "helius-sdk": "^1.0.15"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0"
   }
 }
