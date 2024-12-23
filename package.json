@@ -4,15 +4,11 @@
   "description": "A bot for high-speed trading on Solana.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "your-test-command-here"
   },
   "dependencies": {
     "@solana/web3.js": "^1.76.0",
     "helius-sdk": "^1.0.15"
-  }
-}
-{
-  "scripts": {
-    "test": "your-test-command-here"
   }
 }
