@@ -1,12 +1,22 @@
-name: Node.js CI
+name: Node.js CI and Linting
 
 on:
+  # Trigger the workflow on push, pull request, or manual dispatch
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
+  workflow_dispatch: # Allows manual triggering of the workflow
+    inputs:
+      run_lint:
+        description: "Run the linter"
+        required: false
+        default: "true"
 
 jobs:
-  build:
+  build-and-lint:
     runs-on: ubuntu-latest
 
     container:
@@ -27,11 +37,21 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    # Run tests (if you have tests defined)
+    # Run Super-Linter
+    - name: Run Linter
+      uses: github/super-linter@v5
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VALIDATE_ALL_CODEBASE: true
+        VALIDATE_JAVASCRIPT_ES: true
+        VALIDATE_JSON: true
+
+    # Run tests (if defined)
     - name: Run tests
       run: npm test
 
-    # Run the bot script with your environment variables
+    # Start the bot
     - name: Start the bot
       run: |
         export HELIUS_HTTP_URL=${{ secrets.HELIUS_HTTP_URL }}
