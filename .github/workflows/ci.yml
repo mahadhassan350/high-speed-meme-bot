@@ -1,5 +1,4 @@
 name: Node.js CI and Linting
-
 on:
   # Trigger the workflow on push, pull request, or manual dispatch
   push:
@@ -14,14 +13,11 @@ on:
         description: "Run the linter"
         required: false
         default: "true"
-
 jobs:
   build-and-lint:
     runs-on: ubuntu-latest
-
     container:
       image: node:20
-
     steps:
     # Checkout the repository
     - name: Checkout code
@@ -33,9 +29,11 @@ jobs:
       with:
         node-version: '20'
 
-    # Install dependencies
+    # Install dependencies (modified to handle missing package-lock.json)
     - name: Install dependencies
-      run: npm ci
+      run: |
+        npm install
+        npm install --save-dev jest
 
     # Run Super-Linter
     - name: Run Linter
@@ -47,7 +45,7 @@ jobs:
         VALIDATE_JAVASCRIPT_ES: true
         VALIDATE_JSON: true
 
-    # Run tests (if defined)
+    # Run tests
     - name: Run tests
       run: npm test
 
