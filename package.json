@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "your-test-command-here"
+    "test": "jest"
   },
   "dependencies": {
     "@solana/web3.js": "^1.76.0",
     "helius-sdk": "^1.0.15"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
