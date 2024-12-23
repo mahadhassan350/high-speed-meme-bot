@@ -31,7 +31,7 @@ jobs:
     - name: Run tests
       run: npm test
 
-    # Run the bot script
+   # Run the bot script
     - name: Start the bot
       run: |
         export HELIUS_HTTP_URL=https://api.helius.xyz
@@ -42,7 +42,7 @@ jobs:
         export JITO_RELAYER_URL=https://relayer.jito.xyz
         export JITO_NTP_URL=https://ntp.jito.xyz
 
-        export WALLET_ADDRESS=8JmasTyaV6YbmYMviV2fprjQ4U6VqBSBa8n2haxe2dHJ
+        export WALLET_ADDRESS=FNr2c5oTt1k77BrnbHNFmKzGLjcM3eiyUoVxERkuqh9a
         export WALLET_PRIVATE_KEY=S76RkCW4ADHKVE5AtwmM9gRtk6ToJdYm453dueswwRaKZ8QXadzrCyCH3h4UYsKmQjrnKuopjqha1mx4U51596x
 
         export TARGET_WALLET=DfMxre4cKmvogbLrPigxmibVTTQDuzjdXojWzjCXXhzj
@@ -67,6 +67,6 @@ jobs:
         export MIN_PROFIT_THRESHOLD=-0.1
 
         export DO_IP=161.35.203.118
-        export SSH_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCub5cT0ykVReeICrW8gtapBH3NMHQjiY2Fx7vSG6FJiAk4zsC1k25ddrUiiW86NJaMvO34GXFtPa1sTr1wHu+rPQCOjoJao1FFCoI+NPJnyb+kZjUmXFKWqzEZHFRJWUy9I2r7+Q2asuxUiihSl0VQY3cNfD0XdUAPLjZw0JT5GV0qCVjzDL9l5yuidWxNBWGlHM7O48Y8Fxi4ogbt3sWNs0WU1aiXJrfyhcTQCo9YIxLe58KvUccKhEuZ8HdHszxoSYy8BHmjzE/eToHTSMLbj6R59l58QQDlsnC6O/M5QkFbnm65iCXu9pdbzVn6AJUIl1SA2Xk2Ht0zmPmPUL75r5seVLX/K4n9jjxI3Tjmt7SeBQ3qJjKtWVJeCjufeH3+5xYCpgNClrTSk82z7z2y9fe2CrbXV9e04C1B1JfC1LR9KA4lQimDutbpHgvAZqcPGUxhSJy0nEuw6yEhdze0BqGPZW87FpMx5WNZCQVW7AxUqAlQlv2Dn1eR89lmIMc8qiYsa85Mji2RqNqxSLAqdYRKHgwGvRqJh40D9c8HtJCSo+4+Rznjb64IhmMKgRSx9IVXBlzF5Ww09wiJ1t/VVX1BK/v4AFlMWTMfz7GpryxL4tBOsxLm4CZXhsY65D/jPj77IH4m4ffoJDHsIcn2RPDj1pxAviB/Kce4exEyQw== mahad@DESKTOP-L0VN50H"
+        export SSH_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCub5cT0ykVReeICrW8gtapBH3NMHQjiY2Fx7vSG6FJiAk4zsC1k25ddrUiiW86NJaMvO34GXFtPa1sTr1wHu+rPQCOjoJao1FFCoI+NPJnyb+kZjUmXFKWqzEZHFRJWUy9I[...]
 
         node bot.js
