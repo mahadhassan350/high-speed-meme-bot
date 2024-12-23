@@ -31,22 +31,18 @@ jobs:
     - name: Run tests
       run: npm test
 
-   # Run the bot script
+    # Run the bot script with your environment variables
     - name: Start the bot
       run: |
-        export HELIUS_HTTP_URL=https://api.helius.xyz
-        export HELIUS_WS_URL=wss://ws.helius.xyz
-        export HELIUS_ECLIPSE_URL=https://eclipse.helius.xyz
-        
-        export JITO_BLOCK_ENGINE_URL=https://blockengine.jito.xyz
-        export JITO_RELAYER_URL=https://relayer.jito.xyz
-        export JITO_NTP_URL=https://ntp.jito.xyz
-
-        export WALLET_ADDRESS=FNr2c5oTt1k77BrnbHNFmKzGLjcM3eiyUoVxERkuqh9a
-        export WALLET_PRIVATE_KEY=S76RkCW4ADHKVE5AtwmM9gRtk6ToJdYm453dueswwRaKZ8QXadzrCyCH3h4UYsKmQjrnKuopjqha1mx4U51596x
-
-        export TARGET_WALLET=DfMxre4cKmvogbLrPigxmibVTTQDuzjdXojWzjCXXhzj
-
+        export HELIUS_HTTP_URL=${{ secrets.HELIUS_HTTP_URL }}
+        export HELIUS_WS_URL=${{ secrets.HELIUS_WS_URL }}
+        export HELIUS_ECLIPSE_URL=${{ secrets.HELIUS_ECLIPSE_URL }}
+        export JITO_BLOCK_ENGINE_URL=${{ secrets.JITO_BLOCK_ENGINE_URL }}
+        export JITO_RELAYER_URL=${{ secrets.JITO_RELAYER_URL }}
+        export JITO_NTP_URL=${{ secrets.JITO_NTP_URL }}
+        export WALLET_ADDRESS=${{ secrets.WALLET_ADDRESS }}
+        export WALLET_PRIVATE_KEY=${{ secrets.WALLET_PRIVATE_KEY }}
+        export TARGET_WALLET=${{ secrets.TARGET_WALLET }}
         export MAX_EXPOSURE_PER_TRADE=1.0
         export STOP_LOSS_PERCENTAGE=20
         export MAX_DAILY_LOSS=1.0
@@ -57,16 +53,13 @@ jobs:
         export COPY_SIZE_PERCENTAGE=90
         export MAX_RETRIES=3
         export REQUEST_TIMEOUT=5000
-
-        export DISCORD_WEBHOOK=your_discord_webhook_url_here
-        export TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-        export TELEGRAM_CHANNEL_ID=@alphabeforealpha
-
+        export DISCORD_WEBHOOK=${{ secrets.DISCORD_WEBHOOK }}
+        export TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
+        export TELEGRAM_CHANNEL_ID=${{ secrets.TELEGRAM_CHANNEL_ID }}
         export FAILED_TRADES_THRESHOLD=3
         export MAX_EXECUTION_TIME=1000
         export MIN_PROFIT_THRESHOLD=-0.1
-
-        export DO_IP=161.35.203.118
-        export SSH_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCub5cT0ykVReeICrW8gtapBH3NMHQjiY2Fx7vSG6FJiAk4zsC1k25ddrUiiW86NJaMvO34GXFtPa1sTr1wHu+rPQCOjoJao1FFCoI+NPJnyb+kZjUmXFKWqzEZHFRJWUy9I[...]
-
+        export DO_IP=${{ secrets.DO_IP }}
+        export SSH_PUBLIC_KEY=${{ secrets.SSH_PUBLIC_KEY }}
+        
         node bot.js
